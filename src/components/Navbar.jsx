@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 const Navbar = () => {
     return (           
-        <div className="navbar bg-base-100 ">
+        <div className="navbar bg-white/30 fixed top-0  z-50 backdrop-blur-xl w-[1180px]">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -22,19 +23,31 @@ const Navbar = () => {
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-        <Link to='./'>Home</Link>
-        <Link to='./Coffee'>Coffee</Link>
-        <Link to='./Dashboard'>Dashboard</Link>
+        <NavLink 
+        className={({isActive})=>`tab ${isActive?'text-warning':'hover:text-warning'}`}
+        to='./'>Home</NavLink>
+        <NavLink
+         className={({isActive})=>`tab ${isActive?'text-warning':'hover:text-warning'}`}
+        to='./Coffee'>Coffee</NavLink>
+        <NavLink
+          className={({isActive})=>`tab ${isActive?'text-warning':'hover:text-warning'}`}
+        to='./Dashboard'>Dashboard</NavLink>
         
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">Coffee-Shop</a>
+    <Link to ='/' className="btn btn-ghost text-xl">Coffee-Shop</Link>
   </div>
   <div className="navbar-end hidden lg:flex ">
     <ul className="menu menu-horizontal px-1 gap-5">
-    <Link to='./'>Home</Link>
-    <Link to='./Coffee'>Coffee</Link>
-    <Link to='./Dashboard'>Dashboard</Link>
+    <NavLink 
+        className={({isActive})=>`tab ${isActive?'text-warning':'hover:text-warning'}`}
+        to='./'>Home</NavLink>
+        <NavLink
+         className={({isActive})=>`tab ${isActive?'text-warning':'hover:text-warning'}`}
+        to='./Coffee'>Coffee</NavLink>
+        <NavLink
+          className={({isActive})=>`tab ${isActive?'text-warning':'hover:text-warning'}`}
+        to='./Dashboard'>Dashboard</NavLink>
     </ul>
   </div>
 

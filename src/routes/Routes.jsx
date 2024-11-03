@@ -20,6 +20,11 @@ import {
           loader:() => fetch('../categories.json'),
           children:[
             {
+              path:'/',
+              element:<CoffeeCards></CoffeeCards>,
+              loader: () => fetch('../coffees.json')
+            },
+            {
               path:'/Category/:Category',
               element:<CoffeeCards></CoffeeCards>,
               loader: () => fetch('../coffees.json')
@@ -27,7 +32,8 @@ import {
           ],
         },
         { path: '/Coffee' ,
-          element: <Coffee></Coffee>
+          element: <Coffee></Coffee>,
+          loader: () => fetch('../coffees.json'),
         },
         { path: '/Dashboard' ,
           element: <Dashboard></Dashboard>
